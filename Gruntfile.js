@@ -1,72 +1,71 @@
-module.exports = function(grunt) {
+'use strict';
 
-  grunt.initConfig({
+module.exports = function (grunt) {
 
-    pkg: grunt.file.readJSON('package.json'),
+    // Time how long tasks take. Can help when optimizing build times
+    require('time-grunt')(grunt);
 
-    concat: {
-      options: {
-        separator: "\n\n"
-      },
-      dist: {
-        src: [
-          'src/_intro.js',
-          'src/main.js',
-          'src/_outro.js'
-        ],
-        dest: 'dist/<%= pkg.name.replace(".js", "") %>.js'
-      }
-    },
+    // Load grunt tasks automatically
+    require('load-grunt-tasks')(grunt);
 
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name.replace(".js", "") %> by <%= pkg.author %>, <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-      },
-      dist: {
-        files: {
-          'dist/<%= pkg.name.replace(".js", "") %>.min.js': ['<%= concat.dist.dest %>']
-        }
-      }
-    },
+    grunt.initConfig({
 
-    //qunit: {
-		//  files: ['test/*.html']
-		//},
+        pkg: grunt.file.readJSON('package.json'),
 
-    jshint: {
-      files: ['dist/knockIE.js'],
-      options: {
-        globals: {
-          console: true,
-          module: true,
-          document: true
+        concat: {
+            options: {
+                separator: "\n\n"
+            },
+            dist: {
+                src: [
+                    'src/main.js'
+                ],
+                dest: 'dist/<%= pkg.name.replace(".js", "") %>.js'
+            }
         },
-        jshintrc: '.jshintrc'
-      }
-    },
 
-		version: {
-			options: {
-				release: 'patch'
-			},
-			src: ['package.json', 'bower.json']
-		},
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.name.replace(".js", "") %> by <%= pkg.author %>, <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+            },
+            dist: {
+                files: {
+                    'dist/<%= pkg.name.replace(".js", "") %>.min.js': ['<%= concat.dist.dest %>']
+                }
+            }
+        },
 
-    watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['concat', 'jshint', 'qunit']
-    }
+        jshint: {
+            files: ['dist/<%= pkg.name %>.js'],
+            options: {
+                globals: {
+                    console: true,
+                    module: true,
+                    document: true
+                },
+                jshintrc: '.jshintrc'
+            }
+        },
 
-  });
+        version: {
+            options: {
+                release: 'patch'
+            },
+            src: ['package.json', 'bower.json']
+        },
 
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  //grunt.loadNpmTasks('grunt-contrib-qunit');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-version');
+        watch: {
+            files: ['<%= jshint.files %>'],
+            tasks: ['concat', 'jshint']
+        }
 
-  //grunt.registerTask('test', ['jshint', 'qunit']);
-  grunt.registerTask('default', ['concat', 'jshint', /*'qunit',*/ 'uglify', 'version']);
+    });
+
+    grunt.registerTask('default', [
+        'concat',
+        'jshint',
+        'uglify',
+        'version'
+    ]);
 
 };
