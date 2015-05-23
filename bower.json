@@ -1,0 +1,21 @@
+{
+  "name": "knockIE",
+  "version": "1.0.3",
+  "main": "dist/knockIE.min.js",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+		"demo",
+		"src",
+		".editorconfig",
+		".gitattributes",
+		".gitignore",
+		".jshintrc",
+		"bower.json",
+		"Gruntfile.js",
+		"LICENSE.txt",
+		"package.json"
+  ],
+  "dependencies": {}
+}
