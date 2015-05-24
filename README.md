@@ -1,6 +1,6 @@
 # sidescroll.js
 
-Fixed Sidebar with smart scroll.
+Accessible Sidebar with Smart Scroll.
 
 ## About
 

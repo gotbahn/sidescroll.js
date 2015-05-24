@@ -14,3 +14,4 @@ results/
 *.out
 *.pid
 *.gz
+*.DS_Store
