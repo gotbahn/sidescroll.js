@@ -20,7 +20,7 @@ module.exports = function (grunt) {
                 src: [
                     'src/main.js'
                 ],
-                dest: 'dist/<%= pkg.name.replace(".js", "") %>.js'
+                dest: 'dist/jquery.<%= pkg.name.replace(".js", "") %>.js'
             }
         },
 
@@ -30,7 +30,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'dist/<%= pkg.name.replace(".js", "") %>.min.js': ['<%= concat.dist.dest %>']
+                    'dist/jquery.<%= pkg.name.replace(".js", "") %>.min.js': ['<%= concat.dist.dest %>']
                 }
             }
         },
