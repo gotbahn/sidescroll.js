@@ -38,19 +38,20 @@ p {
 	min-height: 100%;
 }
 
-.container {
+.content {
 	margin-left: 8rem;
+	max-width: 90rem;
 	padding: 0 3rem 3rem;
 	text-align: justify;
 }
 
-.nav {
+.sidebar {
 	float: left;
 	width: 8rem;
 	min-height: 100%;
 }
 
-.nav:after {
+.sidebar:after {
 	background-color: #303030;
 	bottom: 0;
 	content: '';
@@ -61,12 +62,12 @@ p {
 	z-index: -1;
 }
 
-.nav.is-fixed {
+.sidebar.is-fixed {
 	position: fixed;
 	top: 0;
 }
 
-.nav-item {
+.sidebar-item {
 	background-color: #303030;
 	color: #f5f5f5;
 	display: block;
@@ -81,6 +82,6 @@ p {
 	text-shadow: 2px 2px 0 #2c2e38, 3px 3px 0 #5c5f72;
 }
 
-.nav-item:hover {
+.sidebar-item:hover {
 	background-color: #505050;
 }

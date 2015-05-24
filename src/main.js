@@ -10,9 +10,9 @@
             win = $(window),
             content = $(settings.content),
             winHeight = 0,
-            menu = this,
-            menuHeight = menu.height(),
-            menuHeightRest = 0,
+            sidebar = this,
+            sidebarHeight = sidebar.height(),
+            sidebarHeightRest = 0,
             contentHeight,
             winTop = 0,
             winTopLast = 0,
@@ -20,8 +20,8 @@
             nextTop = 0,
             fixedClass = settings.fixedClass;
 
-        function isMenuFixed() {
-            return (menuHeight < contentHeight) && (contentHeight > winHeight);
+        function isSidebarFixed() {
+            return (sidebarHeight < contentHeight) && (contentHeight > winHeight);
         }
 
         function addFixed(el) {
@@ -36,31 +36,31 @@
             }
         }
 
-        function positionMenu(el) {
+        function positionSidebar(el) {
             //  Spot positions and heights
             winHeight = win.height();
             contentHeight = content.height();
             winTop = win.scrollTop();
             scrollStep = winTop - winTopLast; // scroll step
-            menuHeightRest = menuHeight - winTop; // visible menu height
+            sidebarHeightRest = sidebarHeight - winTop; // visible sidebar height
 
-            // Fixed menu cases
-            if (isMenuFixed()) {
+            // Fixed sidebar cases
+            if (isSidebarFixed()) {
 
                 addFixed(el);
 
                 //  Smart scroll cases
-                if (menuHeight > winHeight) {
+                if (sidebarHeight > winHeight) {
 
                     //  Scroll down
                     if (winTop > winTopLast) {
 
-                        var menuScrollMax = menuHeight - winHeight;
+                        var sidebarScrollMax = sidebarHeight - winHeight;
 
-                        if (nextTop < (menuScrollMax - scrollStep)) {
+                        if (nextTop < (sidebarScrollMax - scrollStep)) {
                             nextTop += scrollStep;
                         } else {
-                            nextTop = menuScrollMax;
+                            nextTop = sidebarScrollMax;
                         }
 
                         el.css('top', -nextTop);
@@ -74,25 +74,25 @@
                         el.css('top', -nextTop);
                     }
                 }
-            } else { //  Static menu cases
+            } else { //  Static sidebar cases
                 removeFixed(el);
             }
             winTopLast = winTop; //  Save previous window scrollTop
         }
 
         //  Page start calculation
-        positionMenu(menu);
+        positionSidebar(sidebar);
 
         //  Change position on scroll
         win.on('scroll', function () {
-            positionMenu(menu);
+            positionSidebar(sidebar);
         });
 
         win.on('resize', function () {
             winHeight = win.height();
             //  Reset position if fixed and out of smart scroll
-            if ((menuHeight < contentHeight) && (menuHeight <= winHeight)) {
-                menu.removeAttr('style');
+            if ((sidebarHeight < contentHeight) && (sidebarHeight <= winHeight)) {
+                sidebar.removeAttr('style');
             }
         });
 
