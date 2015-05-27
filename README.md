@@ -1,4 +1,4 @@
-# sidescroll.js
+# ↕ sidescroll.js
 
 Accessible Sidebar with Smart Scroll.
 
@@ -13,11 +13,11 @@ What scenarios you should be considered to make sidebar always accessible.
 
 | S >= C, S <= W, C <= W | S > C, S >= W, C <= W |
 | ------------- | ------------- |
-| Simplest scenario when Sidebar greater or equal Content height and less than Window height. For this case is nothing be worried about, static position is pretty enough.![Case 2](/proto/case2.png)  | Another static scenario is when Sidebar is greater than Content height and they both can be greater than window size. Scroll will be determinated by Sidebar height. ![Case 3](/proto/case3.png)  |
+| Simplest scenario when Sidebar greater or equal Content height and less than Window height. For this case is nothing be worried about, static position is pretty enough.![case 1](/proto/case1.png)  | Another static scenario is when Sidebar is greater than Content height and they both can be greater than window size. Scroll will be determinated by Sidebar height. ![case 2](/proto/case2.png)  |
 
 | S < C, S <= W, C > W | S < C, S > W, C > W |
 | ------------- | ------------- |
-| Sidebar is less than Content and Window heights. In this cases static position is not enough. Sidebar should be fixed to be always visible. ![Case 1](/proto/case1.png) | And most complicated scenario is when Sidebar less than Content height and greater with Content than window size. In this case fixed position is not enough. Sidebar should be scrollable. ![Case 4](/proto/case4.png) |
+| Sidebar is less than Content and Window heights. In this cases static position is not enough. Sidebar should be fixed to be always visible. ![case 3](/proto/case3.png) | And most complicated scenario is when Sidebar less than Content height and greater with Content than window size. In this case fixed position is not enough. Sidebar should be scrollable. ![Case 4](/proto/case4.png) |
 
 To make it happen was created sidescroll.js plugin.
 
@@ -71,15 +71,15 @@ $('.sidebar').sideScroll({
 });
 ```
 
-## Options
+#### Options
 
-### content
+##### content
 Type: `String`  
 Default: `'.container'`
 
 This overrides container class name selector. Can be any jQuery selector.
 
-### fixedClass
+##### fixedClass
 Type: `String`  
 Default: `'is-fixed'`
 

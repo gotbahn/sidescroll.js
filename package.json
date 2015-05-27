@@ -1,18 +1,19 @@
 {
-  "name": "sidescroll",
+  "name": "sidescroll.js",
   "version": "0.1.1",
-  "main": "dist/sidescroll.min.js",
-  "description": "Target specific IE version",
+  "main": "dist/jquery.sidescroll.min.js",
+  "description": "Accessible Sidebar with Smart Scroll",
   "repository": {
     "type": "git",
-    "url": "git://github.com/godban/sidescroll.git"
+    "url": "git://github.com/godban/sidescroll.js.git"
   },
   "keywords": [
-    "Internet Explorer",
-    "IE",
-    "target",
-    "specific",
-    "version"
+    "Sidebar",
+    "Accessible",
+    "Fixed",
+    "Scroll",
+    "Smart Scroll",
+    "Scrollable"
   ],
   "author": "Bogdan Plieshka",
   "license": "MIT",

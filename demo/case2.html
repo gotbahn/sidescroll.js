@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sidescroll.js demo</title>
+	<link rel="stylesheet" href="../bower_components/normalize.css/normalize.css"/>
+	<link rel="stylesheet" href="styles/main.css"/>
+</head>
+<body>
+<main class="main main-example">
+	<nav class="sidebar">
+		<a href="foo1" class="sidebar-item">1</a>
+		<a href="foo2" class="sidebar-item">2</a>
+		<a href="foo3" class="sidebar-item">3</a>
+		<a href="foo4" class="sidebar-item">4</a>
+		<a href="foo5" class="sidebar-item">5</a>
+		<a href="foo6" class="sidebar-item">6</a>
+		<a href="foo7" class="sidebar-item">7</a>
+		<a href="foo8" class="sidebar-item">8</a>
+		<a href="foo9" class="sidebar-item">9</a>
+		<a href="foo10" class="sidebar-item">10</a>
+		<a href="foo11" class="sidebar-item">11</a>
+		<a href="foo12" class="sidebar-item">12</a>
+		<a href="foo13" class="sidebar-item">13</a>
+		<a href="foo14" class="sidebar-item">14</a>
+		<a href="foo15" class="sidebar-item">15</a>
+	</nav>
+	<section class="content">
+		<div class="content-inner-wrap">
+			<h1>
+				↕ sidescroll.js
+				<br/>
+				<small>S > C, S >= W, C <= W</small>
+			</h1>
+
+			<table>
+				<tr>
+					<td class="example-cell">
+						<p>
+							Simplest scenario when Sidebar greater or equal Content height and less than Window height. For this case is nothing be worried about, static position is pretty enough.
+						</p>
+						<ul class="examples-legend">
+							<li>
+								<span class="example-square-window"></span>
+								W - Window
+							</li>
+							<li>
+								<span class="example-square-sidebar"></span>
+								S - Sidebar
+							</li>
+							<li>
+								<span class="example-square-content"></span>
+								C - Content
+							</li>
+						</ul>
+					</td>
+					<td>
+						<img height="400px" src="../proto/case1.svg" alt="case 2">
+					</td>
+				</tr>
+			</table>
+			<a href="./index.html" class="btn">← back</a>
+			<p class="text-justify">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolore dolorum error est fugiat labore, libero, molestias perferendis provident quis quod soluta voluptas. Aspernatur corporis deleniti dolorum eligendi enim illum incidunt ipsa ipsam itaque labore laborum non porro quasi recusandae, repellat sapiente sed tempora! Accusamus dolor excepturi fugit illo ipsam nisi non placeat qui repellendus sed. Alias aspernatur aut, blanditiis culpa cum dignissimos ducimus eaque exercitationem fugiat illo illum laborum optio, provident quae, quos rerum suscipit temporibus voluptates? A atque debitis doloremque dolorum eius excepturi facilis inventore ipsa ipsam ipsum iure laudantium minus mollitia nesciunt obcaecati praesentium quae, quia quod, quos repellat repudiandae saepe tempora, temporibus tenetur vel voluptatibus voluptatum! A ab architecto error, nisi odit quae quibusdam voluptate voluptatum? Consequatur dolores exercitationem explicabo iste laudantium nobis nostrum optio reprehenderit veniam vitae? Accusantium amet commodi consequatur culpa, cum dolorum eaque earum, eius error eum impedit ipsum, laudantium nihil omnis perferendis provident quae quis repellat sed voluptatem! Blanditiis dolor, eum incidunt libero nam qui quo! At aut dolore dolorum incidunt ipsum, iusto laborum magni, non officia provident quibusdam rem ullam vero? Ab accusantium, aperiam atque debitis dicta distinctio doloribus dolorum, eius, enim minima non odio omnis pariatur quasi quis sapiente similique totam vel velit voluptatibus? Aperiam dignissimos in inventore quae sed! Accusantium aliquam, architecto assumenda consequuntur corporis cupiditate deleniti deserunt dicta dolores ea earum eligendi excepturi exercitationem expedita facilis harum impedit, in ipsa laudantium minus mollitia neque nihil officiis quas quidem quisquam quo ratione reiciendis sint sit sunt tempora temporibus totam, ullam vel veritatis voluptate? Deleniti dicta distinctio doloremque dolorum ea eos excepturi fugiat hic, illo modi necessitatibus nobis, optio quos rem saepe sit veritatis. Animi consequuntur deleniti eaque enim, excepturi, ipsam nam neque nobis perferendis porro quae recusandae reiciendis voluptatem. Adipisci animi aut dignissimos dolore eum ex explicabo illum labore nihil nulla, odio temporibus. Atque cupiditate iusto porro rem soluta! Animi aperiam at beatae minima, porro praesentium quae! Accusantium adipisci distinctio fuga fugit officiis pariatur quaerat sed sit suscipit voluptatem! A accusantium aperiam assumenda atque blanditiis consequuntur cupiditate debitis deserunt dicta dolorem eum eveniet excepturi expedita fugit id illo illum ipsa ipsum iusto laborum, nam nesciunt nobis nulla, praesentium quisquam quos unde vitae. Ad aliquam amet animi assumenda corporis deleniti dolor dolore doloribus earum eveniet, ipsa iure iusto laudantium maxime modi molestiae natus neque odit perferendis perspiciatis placeat porro quos ratione similique soluta suscipit tenetur unde vel voluptate voluptatum. Doloremque?
+			</p>
+		</div>
+	</section>
+</main>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../dist/jquery.sidescroll.js"></script>
+<script>
+	$('.sidebar').sideScroll({
+		content: '.content'
+	});
+</script>
+</body>
+</html>
