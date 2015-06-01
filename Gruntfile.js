@@ -8,6 +8,8 @@ module.exports = function (grunt) {
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
 
+    var version = 'patch';
+
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
@@ -49,7 +51,7 @@ module.exports = function (grunt) {
 
         version: {
             options: {
-                release: 'patch'
+                release: version
             },
             src: [
                 'package.json',
@@ -70,12 +72,16 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask('build', [
-        'concat',
-        'jshint',
-        'uglify',
-        'version',
-        'exec:gitTag'
-    ]);
+    grunt.registerTask('build', function() {
+        grunt.task.run([
+            'concat',
+            'jshint',
+            'uglify',
+            'version'
+        ]);
+        if (version !== 'patch') {
+            grunt.task.run('exec:gitTag');
+        }
+    });
 
 };
