@@ -49,7 +49,7 @@ module.exports = function (grunt) {
 
         version: {
             options: {
-                release: 'major'
+                release: 'patch'
             },
             src: ['package.json', 'bower.json']
         },
