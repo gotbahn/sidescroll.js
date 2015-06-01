@@ -51,7 +51,16 @@ module.exports = function (grunt) {
             options: {
                 release: 'patch'
             },
-            src: ['package.json', 'bower.json']
+            src: [
+                'package.json',
+                'bower.json'
+            ]
+        },
+
+        exec: {
+            gitTag: {
+                cmd: 'git tag -a v<%= pkg.version %> -m "Package update"'
+            }
         },
 
         watch: {
@@ -61,11 +70,12 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask('default', [
+    grunt.registerTask('build', [
         'concat',
         'jshint',
         'uglify',
-        'version'
+        'version',
+        'exec:gitTag'
     ]);
 
 };
