@@ -1,6 +1,6 @@
 {
   "name": "sidescroll.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/sidescroll.min.js",
   "ignore": [
     "node_modules",
