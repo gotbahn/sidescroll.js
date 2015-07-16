@@ -21,6 +21,7 @@
     "jquery": "~2.1.4"
   },
   "devDependencies": {
-    "normalize.css": "~3.0.3"
+    "normalize.css": "~3.0.3",
+    "html5shiv": "~3.7.2"
   }
 }
