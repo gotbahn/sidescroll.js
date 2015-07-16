@@ -87,7 +87,7 @@ This overrides fixed class name, which applying to sidebar
 
 ## Browser support
 
-Chrome, Firefox, Safari, Opera, IE9+/Edge, iOs Safari*, Opera Mini*, Chrome for Android*
+Chrome, Firefox, Safari, Opera, IE9+/Edge, iOs Safari\*, Opera Mini\*, Chrome for Android\*
 
 \* <small>Little bit buggy in rendering as all fixed elements in mobile browsers</small>
 
