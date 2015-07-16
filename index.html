@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>sidescroll.js demo</title>
-	<link rel="stylesheet" href="../bower_components/normalize.css/normalize.css"/>
-	<link rel="stylesheet" href="styles/main.css"/>
-	<!--[if lt IE 9]>
-		<script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
-	<![endif]-->
+	<title>sidescroll.js</title>
+	<link rel="stylesheet" href="./bower_components/normalize.css/normalize.css"/>
+	<link rel="stylesheet" href="./demo/styles/main.css"/>
+	<link href="./favicon.ico" rel="icon" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lt IE 9]>
+    <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+    <![endif]-->
 </head>
 <body>
 <main class="main">
 	<section class="content">
 		<div class="content-inner-wrap">
+
+			<nav class="jumbo-links">
+				<a
+					class="btn"
+					href="https://raw.githubusercontent.com/godban/sidescroll.js/master/dist/jquery.sidescroll.min.js">
+					<img src="./demo/images/download.svg" alt="Download" width="16px" height="16px"/>
+					Download
+				</a>
+				<a  class="btn"
+					target="_blank"
+					href="https://github.com/godban/sidescroll.js">
+					<img src="./demo/images/github.svg" alt="GitHub" width="16px" height="16px"/>
+					GitHub
+				</a>
+			</nav>
+
 			<h1>
-				↕ sidescroll.js
+				↕ sidescroll<span class="color-secondary">.js</span>
 				<br/>
 				<small>accessible Sidebar with Smart Scroll.</small>
 			</h1>
@@ -46,18 +64,18 @@
 				</tr>
 				<tr>
 					<td>Simplest scenario when Sidebar greater or equal Content height and less than Window height. For this case is nothing be worried about, static position is pretty enough.
-						<img src="../proto/case1.svg" alt="case 1">
+						<img src="./proto/case1.svg" alt="case 1">
 					</td>
 					<td>Another static scenario is when Sidebar is greater than Content height and they both can be greater than window size. Scroll will be determinated by Sidebar height.
-						<img src="../proto/case2.svg" alt="case 2">
+						<img src="./proto/case2.svg" alt="case 2">
 					</td>
 				</tr>
 				<tr>
 					<td class="text-center">
-						<a href="./case1.html" class="btn">View case #1</a>
+						<a href="./demo/case1.html" class="btn">View case #1</a>
 					</td>
 					<td class="text-center">
-						<a href="./case2.html" class="btn">View case #2</a>
+						<a href="./demo/case2.html" class="btn">View case #2</a>
 					</td>
 				</tr>
 				<tr>
@@ -66,18 +84,18 @@
 				</tr>
 				<tr>
 					<td>Sidebar is less than Content and Window heights. In this cases static position is not enough. Sidebar should be fixed to be always visible.
-						<img src="../proto/case3.svg" alt="case 3">
+						<img src="./proto/case3.svg" alt="case 3">
 					</td>
 					<td>And most complicated scenario is when Sidebar less than Content height and greater with Content than window size. In this case fixed position is not enough. Sidebar should be scrollable.
-						<img src="../proto/case4.svg" alt="Case 4">
+						<img src="./proto/case4.svg" alt="Case 4">
 					</td>
 				</tr>
 				<tr>
 					<td class="text-center">
-						<a href="./case3.html" class="btn">View case #3</a>
+						<a href="./demo/case3.html" class="btn">View case #3</a>
 					</td>
 					<td class="text-center">
-						<a href="./case4.html" class="btn">View case #4</a>
+						<a href="./demo/case4.html" class="btn">View case #4</a>
 					</td>
 				</tr>
 				</tbody>
@@ -85,8 +103,8 @@
 		</div>
 	</section>
 </main>
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
-<script src="../dist/jquery.sidescroll.js"></script>
+<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./dist/jquery.sidescroll.js"></script>
 <script>
 	$('.sidebar').sideScroll({
 		content: '.content'

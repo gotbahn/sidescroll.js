@@ -1,6 +1,6 @@
 {
   "name": "sidescroll.js",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "main": "dist/jquery.sidescroll.min.js",
   "description": "Accessible Sidebar with Smart Scroll",
   "repository": {
@@ -26,6 +26,7 @@
     "grunt-contrib-jshint": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
+    "grunt-exec": "latest",
     "grunt-version": "latest",
     "load-grunt-tasks": "latest",
     "time-grunt": "latest"

@@ -22,13 +22,16 @@ body {
 	font-size: 1.4rem;
 	line-height: 1.4;
 	color: #666;
+	min-width: 768px;
 }
 
 h1 {
 	font-size: 4rem;
 	margin-bottom: 1em;
 	margin-top: 0;
+	margin-right: 26rem;
 	padding-top: .5em;
+	white-space: nowrap;
 }
 
 h1 small {
@@ -36,6 +39,7 @@ h1 small {
 	font-weight: 400;
 	font-family: monospace;
 	display: block;
+	white-space: normal;
 }
 
 p {
@@ -191,4 +195,36 @@ img {
 
 .main-example .content {
 	background-color: rgba(124, 179, 2, .4);
+}
+
+.jumbo-links {
+	float: right;
+	margin: 4rem 0;
+}
+
+.jumbo-links .btn {
+	border: 2px solid #3fb2ed;
+	background-color: #fff;
+	color: #3fb2ed;
+	transition-duration: .15s;
+	transition-timing-function: linear;
+	transition-property: color, border-color;
+	margin-left: 1.5rem;
+	position: static;
+}
+
+.jumbo-links .btn:hover {
+	border-color: rgba(124, 179, 2, .8);
+	color: rgba(124, 179, 2, .8);
+}
+
+.jumbo-links img {
+	opacity: .7;
+	position: relative;
+	top: 3px;
+	margin-right: 3px;
+}
+
+.color-secondary {
+	color: rgba(124, 179, 2, .8);
 }

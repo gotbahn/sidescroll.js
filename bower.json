@@ -1,21 +1,23 @@
 {
   "name": "sidescroll.js",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "main": "dist/sidescroll.min.js",
   "ignore": [
     "node_modules",
     "bower_components",
-    "test",
     "demo",
+    "proto",
     "src",
     ".editorconfig",
     ".gitattributes",
     ".gitignore",
+    ".jscsrc",
     ".jshintrc",
-    "bower.json",
+    "favicon.ico",
     "Gruntfile.js",
     "LICENSE.txt",
-    "package.json"
+    "package.json",
+    "README.md"
   ],
   "dependencies": {
     "jquery": "~2.1.4"

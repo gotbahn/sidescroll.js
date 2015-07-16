@@ -23,7 +23,7 @@ To make it happen was created sidescroll.js plugin.
 
 ## Demo
 
-To checkout all scenarios [try live demo](http://godban.com.ua/projects/sidescroll/demo "slidescroll.js demo").
+To checkout all scenarios [try live demo](http://godban.com.ua/projects/sidescroll/ "slidescroll.js demo").
 
 
 ## Installation

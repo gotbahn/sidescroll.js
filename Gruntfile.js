@@ -8,6 +8,8 @@ module.exports = function (grunt) {
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
 
+    var version = 'patch';
+
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
@@ -61,9 +63,18 @@ module.exports = function (grunt) {
 
         version: {
             options: {
-                release: 'patch'
+                release: version
             },
-            src: ['package.json', 'bower.json']
+            src: [
+                'package.json',
+                'bower.json'
+            ]
+        },
+
+        exec: {
+            gitTag: {
+                cmd: 'git tag -a v<%= pkg.version %> -m "Package update"'
+            }
         },
 
         watch: {
