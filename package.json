@@ -1,6 +1,6 @@
 {
   "name": "sidescroll.js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/jquery.sidescroll.min.js",
   "description": "Accessible Sidebar with Smart Scroll",
   "repository": {
