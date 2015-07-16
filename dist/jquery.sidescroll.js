@@ -1,3 +1,5 @@
+/*! sidescroll by Bogdan Plieshka, 16-07-2015 */
+
 (function ($) {
     'use strict';
 

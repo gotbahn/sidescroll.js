@@ -12,6 +12,9 @@ module.exports = function (grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
+        banner: '/*! <%= pkg.name.replace(".js", "") %> by <%= pkg.author %>, <%= grunt.template.today("dd-mm-yyyy")' +
+        ' %> */\n',
+
         concat: {
             options: {
                 separator: "\n\n"
@@ -25,13 +28,22 @@ module.exports = function (grunt) {
         },
 
         uglify: {
-            options: {
-                banner: '/*! <%= pkg.name.replace(".js", "") %> by <%= pkg.author %>, <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-            },
             dist: {
                 files: {
                     'dist/jquery.<%= pkg.name.replace(".js", "") %>.min.js': ['<%= concat.dist.dest %>']
                 }
+            }
+        },
+
+        usebanner: {
+            options: {
+                position: 'top',
+                banner: '<%= banner %>'
+            },
+            files: {
+                src: [
+                    'dist/**/*.js'
+                ]
             }
         },
 
@@ -49,7 +61,7 @@ module.exports = function (grunt) {
 
         version: {
             options: {
-                release: 'major'
+                release: 'patch'
             },
             src: ['package.json', 'bower.json']
         },
@@ -65,6 +77,7 @@ module.exports = function (grunt) {
         'concat',
         'jshint',
         'uglify',
+        'usebanner',
         'version'
     ]);
 

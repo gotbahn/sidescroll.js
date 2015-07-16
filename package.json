@@ -1,6 +1,6 @@
 {
   "name": "sidescroll.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/jquery.sidescroll.min.js",
   "description": "Accessible Sidebar with Smart Scroll",
   "repository": {
@@ -20,13 +20,14 @@
   "readmeFilename": "README.md",
   "dependencies": {},
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-jshint": "~0.6.4",
-    "grunt-contrib-uglify": "~0.2.4",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-version": "^0.3.0",
-    "load-grunt-tasks": "^3.2.0",
-    "time-grunt": "^1.2.1"
+    "grunt": "latest",
+    "grunt-banner": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-version": "latest",
+    "load-grunt-tasks": "latest",
+    "time-grunt": "latest"
   }
 }
