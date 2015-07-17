@@ -1,70 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>sidescroll.js demo</title>
-	<link rel="stylesheet" href="../bower_components/normalize.css/normalize.css"/>
-	<link rel="stylesheet" href="styles/main.css"/>
-	<!--[if lt IE 9]>
-		<script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
-	<![endif]-->
+    <title>sidescroll.js demo</title>
+    <link rel="stylesheet" href="../bower_components/normalize.css/normalize.css"/>
+    <link rel="stylesheet" href="styles/main.css"/>
+    <link href="./../favicon.ico" rel="icon" type="image/x-icon">
+    <!--[if lt IE 9]>
+        <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+    <![endif]-->
 </head>
 <body>
 <main class="main main-example">
-	<nav class="sidebar">
-		<a href="#foo1" class="sidebar-item">1</a>
-		<a href="#foo2" class="sidebar-item">2</a>
-		<a href="#foo3" class="sidebar-item">3</a>
-		<a href="#foo4" class="sidebar-item">4</a>
-		<a href="#foo5" class="sidebar-item">5</a>
-		<a href="#foo6" class="sidebar-item">6</a>
-		<a href="#foo7" class="sidebar-item">7</a>
-		<a href="#foo8" class="sidebar-item">8</a>
-		<a href="#foo9" class="sidebar-item">9</a>
-	</nav>
-	<section class="content">
-		<div class="content-inner-wrap">
-			<h1>
-				↕ sidescroll.js
-				<br/>
-				<small>S >= C, S <= W, C <= W</small>
-			</h1>
+    <nav class="sidebar">
+        <a href="#foo1" class="sidebar-item">1</a>
+        <a href="#foo2" class="sidebar-item">2</a>
+        <a href="#foo3" class="sidebar-item">3</a>
+        <a href="#foo4" class="sidebar-item">4</a>
+        <a href="#foo5" class="sidebar-item">5</a>
+        <a href="#foo6" class="sidebar-item">6</a>
+        <a href="#foo7" class="sidebar-item">7</a>
+        <a href="#foo8" class="sidebar-item">8</a>
+        <a href="#foo9" class="sidebar-item">9</a>
+    </nav>
+    <section class="content">
+        <div class="content-inner-wrap">
+            <h1>
+                ↕ sidescroll.js
+                <br/>
+                <small>S >= C, S <= W, C <= W</small>
+            </h1>
 
-			<table>
-				<tr>
-					<td class="example-cell">
-						<p>
-							Simplest scenario when Sidebar greater or equal Content height and less than Window height. For this case is nothing be worried about, static position is pretty enough.
-						</p>
-						<ul class="examples-legend">
-							<li>
-								<span class="example-square-window"></span>
-								W - Window
-							</li>
-							<li>
-								<span class="example-square-sidebar"></span>
-								S - Sidebar
-							</li>
-							<li>
-								<span class="example-square-content"></span>
-								C - Content
-							</li>
-						</ul>
-					</td>
-					<td>
-						<img height="400px" src="../proto/case2.svg" alt="case 2">
-					</td>
-				</tr>
-			</table>
-			<a href="../index.html" class="btn">← back</a>
-		</div>
-	</section>
+            <table>
+                <tr>
+                    <td class="example-cell">
+                        <p>
+                            Simplest scenario when Sidebar greater or equal Content height and less than Window height.
+                            For this case is nothing be worried about, static position is pretty enough.
+                        </p>
+                        <ul class="examples-legend">
+                            <li>
+                                <span class="example-square-window"></span>
+                                W - Window
+                            </li>
+                            <li>
+                                <span class="example-square-sidebar"></span>
+                                S - Sidebar
+                            </li>
+                            <li>
+                                <span class="example-square-content"></span>
+                                C - Content
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <img height="400px" src="../proto/case2.svg" alt="case 2">
+                    </td>
+                </tr>
+            </table>
+            <a href="../index.html" class="btn">← back</a>
+        </div>
+    </section>
 </main>
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../dist/jquery.sidescroll.js"></script>
 <script>
-	$('.sidebar').sideScroll({
-		content: '.content'
-	});
+    $('.sidebar').sideScroll({
+        content: '.content'
+    });
 </script>
 </body>
 </html>
