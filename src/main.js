@@ -1,16 +1,21 @@
-(function ($) {
+;
+(function ($, window) {
     'use strict';
 
-    $.fn.sideScroll = function (options) {
+    var name = 'sideScroll',
+        defaults = {
+            contentClass: '.content',
+            fixedClassName: 'is-fixed'
+        };
 
-        var settings = $.extend({
-            content: '.content',
-            fixedClass: 'is-fixed'
-        }, options),
-            win = $(window),
-            content = $(settings.content),
+    function SideScroll(element, options) {
+        this.options = $.extend({}, defaults, options);
+        this.init();
+
+        var win = $(window),
+            content = $(this.options.contentClass),
             winHeight = 0,
-            sidebar = this,
+            sidebar = $(element),
             sidebarHeight = sidebar.height(),
             sidebarHeightRest = 0,
             contentHeight,
@@ -18,7 +23,7 @@
             winTopLast = 0,
             scrollStep = 0,
             nextTop = 0,
-            fixedClass = settings.fixedClass;
+            fixedClass = this.options.fixedClassName;
 
         function isSidebarFixed() {
             return (sidebarHeight < contentHeight) && (contentHeight > winHeight);
@@ -95,7 +100,26 @@
                 sidebar.removeAttr('style');
             }
         });
+    }
 
+    SideScroll.prototype = {
+        init: function () {
+            console.log('hello');
+        },
+        destroy: function () {
+            console.log('destroy');
+        }
     };
 
-}(jQuery));
+    $.fn[name] = function (options) {
+        return this.each(function () {
+            if (!$.data(this, name)) {
+                $.data(this, name, new SideScroll(this, options));
+            }
+            else if ($.isFunction(SideScroll.prototype[options])) {
+                $.data(this, name)[options]();
+            }
+        });
+    }
+
+})(jQuery, window, document);

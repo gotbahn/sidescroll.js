@@ -2,7 +2,7 @@
   "name": "sidescroll.js",
   "version": "1.0.6",
   "main": "dist/jquery.sidescroll.min.js",
-  "description": "Accessible Sidebar with Smart Scroll",
+  "description": "Accessible fixed Sidebar with Smart Scroll",
   "repository": {
     "type": "git",
     "url": "git://github.com/godban/sidescroll.js.git"
