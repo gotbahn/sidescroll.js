@@ -221,7 +221,7 @@
                 excepturi fugiat, praesentium rem. Aspernatur aut doloremque ea impedit magni recusandae repellendus
                 rerum tempora.
             </p>
-            <button onclick="destroy()">Destroy</button>
+            <button onclick="unbind()">Destroy</button>
         </div>
     </section>
 </main>
@@ -230,8 +230,8 @@
 <script src="../src/main.js"></script>
 <script>
     $('.sidebar').sideScroll();
-    function destroy() {
-        $('.sidebar').sideScroll('destroy');
+    function unbind() {
+        $('.sidebar').sideScroll('unbind');
     }
 </script>
 </body>
