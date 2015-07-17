@@ -1,44 +1,41 @@
-/*! sidescroll by Bogdan Plieshka, 16-07-2015 */
+/*! sidescroll by Bogdan Plieshka, 18-07-2015 */
 
-(function ($) {
+;
+(function ($, window) {
     'use strict';
 
-    $.fn.sideScroll = function (options) {
+    function SideScroll(el, options) {
 
-        var settings = $.extend({
-            content: '.content',
-            fixedClass: 'is-fixed'
-        }, options),
+        this.options = $.extend({}, {
+            contentClass: '.content',
+            fixedClassName: 'is-fixed'
+        }, options);
+
+        var that = this,
+            sidebar = $(el),
             win = $(window),
-            content = $(settings.content),
+            fixedClassName = that.options.fixedClassName,
             winHeight = 0,
-            sidebar = this,
-            sidebarHeight = sidebar.height(),
-            sidebarHeightRest = 0,
-            contentHeight,
             winTop = 0,
             winTopLast = 0,
-            scrollStep = 0,
             nextTop = 0,
-            fixedClass = settings.fixedClass;
-
-        function isSidebarFixed() {
-            return (sidebarHeight < contentHeight) && (contentHeight > winHeight);
-        }
+            contentHeight = 0,
+            sidebarHeightRest = 0,
+            scrollStep = 0;
 
         function addFixed(el) {
-            if (!el.hasClass(fixedClass)) {
-                el.addClass(fixedClass);
-            }
+            if (!el.hasClass(fixedClassName)) el.addClass(fixedClassName);
         }
 
         function removeFixed(el) {
-            if (el.hasClass(fixedClass)) {
-                el.removeClass(fixedClass);
-            }
+            if (el.hasClass(fixedClassName)) el.removeClass(fixedClassName);
         }
 
-        function positionSidebar(el) {
+        this.positionSidebar = function () {
+
+            var content = $(that.options.contentClass),
+                sidebarHeight = sidebar.height();
+
             //  Spot positions and heights
             winHeight = win.height();
             contentHeight = content.height();
@@ -46,10 +43,14 @@
             scrollStep = winTop - winTopLast; // scroll step
             sidebarHeightRest = sidebarHeight - winTop; // visible sidebar height
 
+            function isSidebarFixed() {
+                return (sidebarHeight < contentHeight) && (contentHeight > winHeight);
+            }
+
             // Fixed sidebar cases
             if (isSidebarFixed()) {
 
-                addFixed(el);
+                addFixed(sidebar);
 
                 //  Smart scroll cases
                 if (sidebarHeight > winHeight) {
@@ -65,39 +66,72 @@
                             nextTop = sidebarScrollMax;
                         }
 
-                        el.css('top', -nextTop);
+                        sidebar.css('top', -nextTop);
 
-                    } else if (winTop < winTopLast) {//  Scroll up
+                    } else if (winTop < winTopLast) { //  Scroll up
+
                         if (nextTop > -scrollStep) {
                             nextTop += scrollStep;
                         } else {
                             nextTop = 0;
                         }
-                        el.css('top', -nextTop);
+                        sidebar.css('top', -nextTop);
                     }
                 }
             } else { //  Static sidebar cases
-                removeFixed(el);
+                removeFixed(sidebar);
             }
             winTopLast = winTop; //  Save previous window scrollTop
-        }
+        };
 
-        //  Page start calculation
-        positionSidebar(sidebar);
+        this.positionOnResize = function () {
+            var sidebarHeight = sidebar.height();
 
-        //  Change position on scroll
-        win.on('scroll', function () {
-            positionSidebar(sidebar);
-        });
-
-        win.on('resize', function () {
             winHeight = win.height();
             //  Reset position if fixed and out of smart scroll
             if ((sidebarHeight < contentHeight) && (sidebarHeight <= winHeight)) {
                 sidebar.removeAttr('style');
             }
-        });
+        };
 
+        this.clearPosition = function () {
+            sidebar.removeAttr('style');
+            removeFixed(sidebar);
+        };
+
+        this.start(sidebar);
+    }
+
+    SideScroll.prototype = {
+        start: function () {
+            this.positionSidebar();
+            $(window).on({
+                'scroll': this.positionSidebar,
+                'resize': this.positionOnResize
+            });
+        },
+        stop: function () {
+            $(window).off({
+                'scroll': this.positionSidebar,
+                'resize': this.positionOnResize
+            });
+        },
+        clear: function () {
+            this.stop();
+            this.clearPosition();
+        }
     };
 
-}(jQuery));
+    $.fn['sideScroll'] = function (options) {
+        var name = 'sideScroll';
+        return this.each(function () {
+            if (!$.data(this, name)) {
+                $.data(this, name, new SideScroll(this, options));
+            }
+            else if ($.isFunction(SideScroll.prototype[options])) {
+                $.data(this, name)[options]();
+            }
+        });
+    }
+
+})(jQuery, window);

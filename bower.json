@@ -1,7 +1,26 @@
 {
   "name": "sidescroll.js",
-  "version": "1.0.6",
+  "description": "Accessible fixed Sidebar with Smart Scroll",
+  "version": "1.1.0",
   "main": "dist/sidescroll.min.js",
+  "homepage": "http://godban.com.ua/projects/flexgrid",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/godban/sidescroll.js.git"
+  },
+  "keywords": [
+    "Sidebar",
+    "Accessible",
+    "Fixed",
+    "Scroll",
+    "Smart Scroll",
+    "Scrollable"
+  ],
+  "author": {
+    "name": "Bogdan Plieshka",
+    "email": "bogdanplieshka@gmail.com",
+    "homepage": "http://godban.com.ua"
+  },
   "ignore": [
     "node_modules",
     "bower_components",

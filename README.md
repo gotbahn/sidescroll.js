@@ -62,26 +62,33 @@ add a line of CSS to your styles
 }
 ```
 
-### With options
+#### Options
+
+| Name | Type | Default value | Description |
+| --- | --- | --- | --- |
+| content | `selector` | `'.container'` | container selector |
+| fixedClass | `string` | `'is-fixed''` | sidebar fixed class name |
 
 ```javascript
 $('.sidebar').sideScroll({
-	content: '.content',
-	fixedClass: 'is-fixed'
+	content: '.my-content',
+	fixedClass: 'my-fixed'
 });
 ```
 
-#### Options
+#### Commands
 
-##### content
-Type: `String`  
-Default: `'.container'`
+| Name | Description |
+| --- | --- |
+| start | plugin initialize, also can be used as continue after stop |
+| stop | plugin stops working, but saved current position |
+| clear | plugin stops working and reset sidebar position |
 
-This overrides container class name selector. Can be any jQuery selector.
-
-##### fixedClass
-Type: `String`  
-Default: `'is-fixed'`
+```javascript
+$('.sidebar').sideScroll('start');
+$('.sidebar').sideScroll('stop');
+$('.sidebar').sideScroll('clear');
+```
 
 This overrides fixed class name, which applying to sidebar
 
@@ -95,9 +102,7 @@ Chrome, Firefox, Safari, Opera, IE9+/Edge, iOs Safari\*, Opera Mini\*, Chrome fo
 
 I'll check out your contribution if you:
 
-* Provide a comprehensive suite of tests for your fork.
-* Have a clear and documented rationale for your changes.
-* Package these up in a pull request.
+* Have a clear and comprehensive description for your changes in pull request.
 
 ## License
 

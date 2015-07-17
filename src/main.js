@@ -2,16 +2,6 @@
 (function ($, window) {
     'use strict';
 
-    var name = 'sideScroll',
-        win = $(window),
-        winHeight = 0,
-        winTop = 0,
-        winTopLast = 0,
-        nextTop = 0,
-        contentHeight = 0,
-        sidebarHeightRest = 0,
-        scrollStep = 0;
-
     function SideScroll(el, options) {
 
         this.options = $.extend({}, {
@@ -21,14 +11,22 @@
 
         var that = this,
             sidebar = $(el),
-            fixedClass = that.options.fixedClassName;
+            win = $(window),
+            fixedClassName = that.options.fixedClassName,
+            winHeight = 0,
+            winTop = 0,
+            winTopLast = 0,
+            nextTop = 0,
+            contentHeight = 0,
+            sidebarHeightRest = 0,
+            scrollStep = 0;
 
         function addFixed(el) {
-            if (!el.hasClass(fixedClass)) el.addClass(fixedClass);
+            if (!el.hasClass(fixedClassName)) el.addClass(fixedClassName);
         }
 
         function removeFixed(el) {
-            if (el.hasClass(fixedClass)) el.removeClass(fixedClass);
+            if (el.hasClass(fixedClassName)) el.removeClass(fixedClassName);
         }
 
         this.positionSidebar = function () {
@@ -105,21 +103,25 @@
     SideScroll.prototype = {
         start: function () {
             this.positionSidebar();
-            win.on('scroll', this.positionSidebar);
-            win.on('resize', this.positionOnResize);
+            $(window).on({
+                'scroll': this.positionSidebar,
+                'resize': this.positionOnResize
+            });
         },
         stop: function () {
-            win.unbind('scroll', this.positionSidebar);
-            win.unbind('resize', this.positionOnResize);
+            $(window).off({
+                'scroll': this.positionSidebar,
+                'resize': this.positionOnResize
+            });
         },
         clear: function () {
-            win.unbind('scroll', this.positionSidebar);
-            win.unbind('resize', this.positionOnResize);
+            this.stop();
             this.clearPosition();
         }
     };
 
-    $.fn[name] = function (options) {
+    $.fn['sideScroll'] = function (options) {
+        var name = 'sideScroll';
         return this.each(function () {
             if (!$.data(this, name)) {
                 $.data(this, name, new SideScroll(this, options));
@@ -130,4 +132,4 @@
         });
     }
 
-})(jQuery, window, document);
+})(jQuery, window);
