@@ -66,8 +66,8 @@ add a line of CSS to your styles
 
 | Name | Type | Default value | Description |
 | --- | --- | --- | --- |
-| content | `selector` | `'.container'` | container selector |
-| fixedClass | `string` | `'is-fixed''` | sidebar fixed class name |
+| **content** | `selector` | `'.container'` | container selector |
+| **fixedClass** | `string` | `'is-fixed'` | sidebar fixed class name |
 
 ```javascript
 $('.sidebar').sideScroll({
@@ -80,9 +80,9 @@ $('.sidebar').sideScroll({
 
 | Name | Description |
 | --- | --- |
-| start | plugin initialize, also can be used as continue after stop |
-| stop | plugin stops working, but saved current position |
-| clear | plugin stops working and reset sidebar position |
+| **start** | plugin initialize, also can be used as continue after stop |
+| **stop** | plugin stops working, but saved current position |
+| **clear** | plugin stops working and reset sidebar position |
 
 ```javascript
 $('.sidebar').sideScroll('start');
