@@ -19,39 +19,22 @@
             fixedClassName: 'is-fixed'
         }, options);
 
-        var sidebar = $(el);
+        var that = this,
+            sidebar = $(el),
+            fixedClass = that.options.fixedClassName;
 
-        this._init(sidebar);
-        this._bind(sidebar);
-    }
+        function addFixed(el) {
+            if (!el.hasClass(fixedClass)) el.addClass(fixedClass);
+        }
 
-    SideScroll.prototype = {
-        _init: function (el) {
-            this._positionSidebar(el);
-        },
-        _bind: function (el) {
-            var self = this,
-                sidebar = $(el),
+        function removeFixed(el) {
+            if (el.hasClass(fixedClass)) el.removeClass(fixedClass);
+        }
+
+        this.positionSidebar = function () {
+
+            var content = $(that.options.contentClass),
                 sidebarHeight = sidebar.height();
-
-            //  Change position on scroll
-            win.on('scroll', function () {
-                self._positionSidebar(el);
-            });
-
-            win.on('resize', function () {
-                winHeight = win.height();
-                //  Reset position if fixed and out of smart scroll
-                if ((sidebarHeight < contentHeight) && (sidebarHeight <= winHeight)) {
-                    sidebar.removeAttr('style');
-                }
-            });
-
-        },
-        _positionSidebar: function (el) {
-            var content = $(this.options.contentClass),
-                sidebarHeight = el.height(),
-                fixedClass = this.options.fixedClassName;
 
             //  Spot positions and heights
             winHeight = win.height();
@@ -64,22 +47,10 @@
                 return (sidebarHeight < contentHeight) && (contentHeight > winHeight);
             }
 
-            function addFixed(el) {
-                if (!el.hasClass(fixedClass)) {
-                    el.addClass(fixedClass);
-                }
-            }
-
-            function removeFixed(el) {
-                if (el.hasClass(fixedClass)) {
-                    el.removeClass(fixedClass);
-                }
-            }
-
             // Fixed sidebar cases
             if (isSidebarFixed()) {
 
-                addFixed(el);
+                addFixed(sidebar);
 
                 //  Smart scroll cases
                 if (sidebarHeight > winHeight) {
@@ -95,7 +66,7 @@
                             nextTop = sidebarScrollMax;
                         }
 
-                        el.css('top', -nextTop);
+                        sidebar.css('top', -nextTop);
 
                     } else if (winTop < winTopLast) { //  Scroll up
 
@@ -104,13 +75,47 @@
                         } else {
                             nextTop = 0;
                         }
-                        el.css('top', -nextTop);
+                        sidebar.css('top', -nextTop);
                     }
                 }
             } else { //  Static sidebar cases
-                removeFixed(el);
+                removeFixed(sidebar);
             }
             winTopLast = winTop; //  Save previous window scrollTop
+        };
+
+        this.positionOnResize = function () {
+            var sidebarHeight = sidebar.height();
+
+            winHeight = win.height();
+            //  Reset position if fixed and out of smart scroll
+            if ((sidebarHeight < contentHeight) && (sidebarHeight <= winHeight)) {
+                sidebar.removeAttr('style');
+            }
+        };
+
+        this.clearPosition = function () {
+            sidebar.removeAttr('style');
+            removeFixed(sidebar);
+        };
+
+        this.start(sidebar);
+    }
+
+    SideScroll.prototype = {
+        start: function () {
+            this.positionSidebar();
+            win.on('scroll', this.positionSidebar);
+            win.on('resize', this.positionOnResize);
+        },
+        stop: function () {
+            win.unbind('scroll', this.positionSidebar);
+            win.unbind('resize', this.positionOnResize);
+        },
+        clear: function () {
+            win.unbind('scroll', this.positionSidebar);
+            win.unbind('resize', this.positionOnResize);
+            this.clearPosition();
         }
     };
 
