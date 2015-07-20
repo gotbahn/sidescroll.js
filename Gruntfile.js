@@ -14,7 +14,8 @@ module.exports = function (grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
-        banner: '/*! <%= pkg.name.replace(".js", "") %> by <%= pkg.author %>, <%= grunt.template.today("dd-mm-yyyy")' +
+        banner: '/*! <%= pkg.name.replace(".js", "") %> by <%= pkg.author.name %>, <%=' +
+        ' grunt.template.today("dd-mm-yyyy")' +
         ' %> */\n',
 
         concat: {

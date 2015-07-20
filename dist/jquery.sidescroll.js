@@ -1,4 +1,4 @@
-/*! sidescroll by [object Object], 20-07-2015 */
+/*! sidescroll by Bogdan Plieshka, 20-07-2015 */
 
 ;
 (function ($, window) {
