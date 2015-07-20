@@ -1,7 +1,7 @@
 {
   "name": "sidescroll.js",
   "description": "Accessible fixed Sidebar with Smart Scroll",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "dist/sidescroll.min.js",
   "homepage": "http://godban.com.ua/projects/flexgrid",
   "repository": {

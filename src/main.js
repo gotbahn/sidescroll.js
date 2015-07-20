@@ -45,16 +45,13 @@
                 return (sidebarHeight < contentHeight) && (contentHeight > winHeight);
             }
 
-            // Fixed sidebar cases
-            if (isSidebarFixed()) {
+            if (isSidebarFixed()) { // fixed sidebar cases
 
                 addFixed(sidebar);
 
-                //  Smart scroll cases
-                if (sidebarHeight > winHeight) {
+                if (sidebarHeight > winHeight) { //  smart scroll cases
 
-                    //  Scroll down
-                    if (winTop > winTopLast) {
+                    if (winTop >= winTopLast) { //  scroll down
 
                         var sidebarScrollMax = sidebarHeight - winHeight;
 
@@ -66,7 +63,7 @@
 
                         sidebar.css('top', -nextTop);
 
-                    } else if (winTop < winTopLast) { //  Scroll up
+                    } else if (winTop < winTopLast) { //  scroll up
 
                         if (nextTop > -scrollStep) {
                             nextTop += scrollStep;
@@ -76,18 +73,17 @@
                         sidebar.css('top', -nextTop);
                     }
                 }
-            } else { //  Static sidebar cases
+            } else { //  static sidebar cases
                 removeFixed(sidebar);
             }
-            winTopLast = winTop; //  Save previous window scrollTop
+            winTopLast = winTop; //  save previous window scrollTop
         };
 
         this.positionOnResize = function () {
             var sidebarHeight = sidebar.height();
 
             winHeight = win.height();
-            //  Reset position if fixed and out of smart scroll
-            if ((sidebarHeight < contentHeight) && (sidebarHeight <= winHeight)) {
+            if ((sidebarHeight < contentHeight) && (sidebarHeight <= winHeight)) { // is fixed & out of smart scroll
                 sidebar.removeAttr('style');
             }
         };
@@ -97,9 +93,10 @@
             removeFixed(sidebar);
         };
 
-        this.start(sidebar);
+        this.start();
     }
 
+    //  Define public methods
     SideScroll.prototype = {
         start: function () {
             this.positionSidebar();
@@ -123,10 +120,10 @@
     $.fn['sideScroll'] = function (options) {
         var name = 'sideScroll';
         return this.each(function () {
-            if (!$.data(this, name)) {
+            if (!$.data(this, name)) { // is there any function constructor with the same name
                 $.data(this, name, new SideScroll(this, options));
             }
-            else if ($.isFunction(SideScroll.prototype[options])) {
+            else if ($.isFunction(SideScroll.prototype[options])) { // is func constructor have proto method
                 $.data(this, name)[options]();
             }
         });
